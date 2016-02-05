@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="iso-8859-2">
+    <title>The_Boomer_Bible.Windows</title>
+
+    <!-- WinJS references -->
+    <link href="/css/main.css" rel="stylesheet" />
+
+    <script src="//Microsoft.WinJS.2.0/js/base.js"></script>
+    <script src="//Microsoft.WinJS.2.0/js/ui.js"></script>
+    
+</head>
+<body bgcolor="#FFFFFF">
+    <div ALIGN="CENTER" id="topSubtitle"></div>
+    <div ALIGN="CENTER" id="book"><b><FONT FACE="Times New Roman" SIZE=7></FONT></b></div>
+    <div ALIGN="CENTER" id="bottomSubtitle"></div>
+    <div ALIGN="CENTER" id="chapterMax"><FONT FACE="Times New Roman" SIZE=5></FONT></div>
+    <div id="blankSpace">&nbsp;</div>
+    <div align="center">
+        <table BORDER="0" width="98%">
+            <tr>
+                <td VALIGN=top WIDTH=50% ALIGN="LEFT"><i><FONT FACE="times new roman" SIZE=5 id="leftPageHeader"></FONT></i>                
+                </td>
+                <td VALIGN=top WIDTH=50% ALIGN="RIGHT"><i><FONT FACE="times new roman" SIZE=5 id="rightPageHeader"</FONT></i></td>
+            </tr>
+        </table>
+    </div>
+    <div ALIGN="CENTER"><b><FONT FACE="times new roman" SIZE=6 id="chapterTitle"></FONT></b></div>
+    <div ALIGN="CENTER">
+        <table BORDER="1" width="95%">
+            <tr>
+                <td VALIGN=top WIDTH=40% ALIGN="JUSTIFY">
+                <ul style="font-size: 4pt; list-style:none; padding:0; margin-top:1em; margin-bottom:1em; " id="leftChapterPage"></ul>                
+                </td>
+                <td VALIGN="top" WIDTH=20% id="icrColumn">
+                    <i><FONT FACE="times new roman" SIZE=4>a. Wil.20.11-12</FONT></i><br>
+                </td>
+                <td VALIGN="top" WIDTH=40% ALIGN="JUSTIFY" style="padding:0px">
+                    <br>
+                    <ul style="list-style:none; padding:0" id="rightChapterPage"></ul>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <script src="/js/SQLite3.js"></script>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/render.js"></script>
+</body>
+</html>
