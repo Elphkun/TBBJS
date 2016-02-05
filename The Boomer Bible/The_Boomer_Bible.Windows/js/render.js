@@ -87,9 +87,9 @@ SQLite3JS.openAsync('\TBB.db').then(function (db) {
 
                     // The following comments are attempts to correct the first verse 'line-height' issue
 
-                    //$('#leftChapterPage li:nth-child(3)').css('line-height', '100%');
+                    $('#leftChapterPage li:nth-child(3)').css('line-height', '62.5%');
                     //$('#leftChapterPage li:nth-child(4)').css('line-height', '100%');
-                   // $('#leftChapterPage li:nth-child(3)').css('padding-bottom', '.5em');
+                    $('#leftChapterPage li:nth-child(3)').css('padding-bottom', '.5em');
                     // screwed up $('#rightChapterPage'):nth-child(1)').css('line-height', '1em');
                      
                 });
