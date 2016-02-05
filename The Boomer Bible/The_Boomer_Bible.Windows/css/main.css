@@ -2,7 +2,6 @@
    Created & maintained by Morten Wang <morten@treemenu.com>
    Version 2001-10-20 */
 
-
 BODY {
   background: #ffffff;
   color: #000000;
@@ -33,8 +32,9 @@ BLOCKQUOTE {
 }
 
 P, LI, TD, TH, BLOCKQUOTE, DD, DT {
-  font-family: Geneva, Verdana, Arial, Helvetica, sans-serif;
-  font-size: 83%;
+  font-family: "Times New Roman";
+  font-size: 100%;
+  line-height: 100%;
 }
 
 DD P {
@@ -48,6 +48,7 @@ PRE, CODE { font-family: "Courier New", courier, monospace; }
           font-size: 75%;
           font-family: Geneva, Verdana, Arial, Helvetica, sans-serif;
           font-style: normal;
+          line-height: 125%;
           text-align: left;
           border-width: 1px 0 0 0;
           border-style: solid;
@@ -69,5 +70,15 @@ th {
 table.optionDef tr {
                      vertical-align: top;
 }
-
+sub, sup { 
+	font-size: 100%;
+	position: relative; 
+	vertical-align: baseline; 
+}
+sup { 
+	top: -0.5em; 
+}
+sub { 
+	bottom: -0.25em; 
+}
 /* End of Style Sheet */

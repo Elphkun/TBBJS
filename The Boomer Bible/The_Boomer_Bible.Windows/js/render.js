@@ -1,7 +1,7 @@
 // render script 2.0
 
 var bookQuery = "pspeciastes";
-var chapterQuery = "3";
+var chapterQuery = "1";
 
 var topSubtitle = new String();
 var book = new String();
@@ -55,7 +55,7 @@ SQLite3JS.openAsync('\TBB.db').then(function (db) {
 
                 leftChapterPage = function () {
                     var l = new Array();
-                    l[0]="<br><br><br>";
+                    l[0]="";
                     for (var i = 0; i <= breakVerseIndex() ; i++) {
                         l.push(verses[i]);
                     }
@@ -84,7 +84,12 @@ SQLite3JS.openAsync('\TBB.db').then(function (db) {
                     for (var i = 0; i < rightChapterPage().length; i++) {
                         $('#rightChapterPage').append('<li>' + rightChapterPage()[i] + '<li>');
                     };
-                    $('#leftChapterPage li:nth-child(3)').css('line-height', '1.75em');
+
+                    // The following comments are attempts to correct the first verse 'line-height' issue
+
+                    //$('#leftChapterPage li:nth-child(3)').css('line-height', '100%');
+                    //$('#leftChapterPage li:nth-child(4)').css('line-height', '100%');
+                   // $('#leftChapterPage li:nth-child(3)').css('padding-bottom', '.5em');
                     // screwed up $('#rightChapterPage'):nth-child(1)').css('line-height', '1em');
                      
                 });
