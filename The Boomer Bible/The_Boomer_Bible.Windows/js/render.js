@@ -11,6 +11,7 @@ var leftPageHeader = new String();
 var rightPageHeader = new String();
 var chapterTitle = new String();
 var verses = new Array();
+var verseID = new Array();
 
 SQLite3JS.openAsync('\TBB.db').then(function (db) {
     return db.allAsync("SELECT * FROM chaptertable where book like '" + bookQuery + "' and chapter like '% " + chapterQuery + "'  order by id asc;").then(function (row) {
@@ -26,7 +27,8 @@ SQLite3JS.openAsync('\TBB.db').then(function (db) {
         .then(function () {
             db.allAsync("SELECT * FROM versetable where book like '" + bookQuery + "' and chapter like '" + chapterQuery + "';").then(function (row2) {
                 for (var i = 0; i < row2.length; i++) {
-                    verses.push(toStaticHTML(row2[i].TEXT));
+                    verses.push(row2[i].TEXT);
+                    verseID.push(row2[i].ID);
                 }
 
 
@@ -55,7 +57,7 @@ SQLite3JS.openAsync('\TBB.db').then(function (db) {
 
                 leftChapterPage = function () {
                     var l = new Array();
-                    l[0]="";
+                    
                     for (var i = 0; i <= breakVerseIndex() ; i++) {
                         l.push(verses[i]);
                     }
@@ -78,18 +80,21 @@ SQLite3JS.openAsync('\TBB.db').then(function (db) {
                     if (leftPageHeader != 'null') { $('#leftPageHeader').html(leftPageHeader); }
                     if (rightPageHeader != 'null') { $('#rightPageHeader').html(rightPageHeader); }
                     $('#chapterTitle').html(chapterTitle);
+                    var idCount = 0;
                     for (var i = 0; i < leftChapterPage().length; i++) {
-                        $('#leftChapterPage').append('<li>'+leftChapterPage()[i]+'<li>');
+                        $('#leftChapterPage').append('<li id="' + verseID[idCount] + '">' + toStaticHTML(leftChapterPage()[i]));
+                        idCount++;
                     };
                     for (var i = 0; i < rightChapterPage().length; i++) {
-                        $('#rightChapterPage').append('<li>' + rightChapterPage()[i] + '<li>');
+                        $('#rightChapterPage').append('<li id="' + verseID[idCount] + '">' + toStaticHTML(rightChapterPage()[i]));
+                        idCount++;
                     };
 
                     // The following comments are attempts to correct the first verse 'line-height' issue
 
-                    $('#leftChapterPage li:nth-child(3)').css('line-height', '62.5%');
+                    $('#leftChapterPage li:nth-child(1)').css('line-height', '62.5%');
                     //$('#leftChapterPage li:nth-child(4)').css('line-height', '100%');
-                    $('#leftChapterPage li:nth-child(3)').css('padding-bottom', '.5em');
+                    $('#leftChapterPage li:nth-child(1)').css('padding-bottom', '.5em');
                     // screwed up $('#rightChapterPage'):nth-child(1)').css('line-height', '1em');
                      
                 });
