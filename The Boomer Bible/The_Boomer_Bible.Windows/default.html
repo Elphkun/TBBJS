@@ -12,36 +12,38 @@
      
 </head>
 <body bgcolor="#FFFFFF">
-    <div ALIGN="CENTER" id="topSubtitle"></div>
-    <div ALIGN="CENTER" id="book"><b><FONT FACE="Times New Roman" SIZE=7></FONT></b></div>
-    <div ALIGN="CENTER" id="bottomSubtitle"></div>
-    <div ALIGN="CENTER" id="chapterMax"><FONT FACE="Times New Roman" SIZE=5></FONT></div>
+    <div ALIGN="CENTER" ><span id="topSubtitle"></span></div>
+    <div ALIGN="CENTER"><span style="font-size: 3em; font-weight:bold" id="book"></span></div>
+    <div ALIGN="CENTER"><span id="bottomSubtitle"></span></div>
+    <div ALIGN="CENTER"><span id="chapterMax"></span></div>
     <div id="blankSpace">&nbsp;</div>
     <div align="center">
         <table BORDER="0" width="98%">
             <tr>
-                <td VALIGN=top WIDTH=50% ALIGN="LEFT"><i><FONT FACE="times new roman" SIZE=5 id="leftPageHeader"></FONT></i>                
+                <td VALIGN=top WIDTH=50% ALIGN="LEFT" style="font-size:1.5em; font-style:italic" id="leftPageHeader">            
                 </td>
-                <td VALIGN=top WIDTH=50% ALIGN="RIGHT"><i><FONT FACE="times new roman" SIZE=5 id="rightPageHeader"</FONT></i></td>
+                <td VALIGN=top WIDTH=50% ALIGN="RIGHT" style="font-size:1.5em; font-style:italic" id="rightPageHeader"></td>
             </tr>
         </table>
     </div>
-    <div ALIGN="CENTER"><b><FONT FACE="times new roman" SIZE=6 id="chapterTitle"></FONT></b></div>
+    <div ALIGN="CENTER" style="font-size:2em" id="chapterTitle"></div>
     <div ALIGN="CENTER">
         <table BORDER="1" width="95%">
             <tr>
                 <td VALIGN=top WIDTH=40% ALIGN="JUSTIFY">
-                <ul style="font-size:4; list-style:none; padding:0" id="leftChapterPage"></ul>                
+                <ul style="list-style:none" id="leftChapterPage"></ul>                
                 </td>
                 <td VALIGN="top" WIDTH=20% id="icrColumn">
                     <i><FONT FACE="times new roman" SIZE=4>a. Wil.20.11-12</FONT></i><br>
                 </td>
-                <td VALIGN="top" WIDTH=40% ALIGN="JUSTIFY" >
-                    <ul style="font-size:4; list-style:none; padding:0 " id="rightChapterPage"></ul>
+                <td VALIGN="top" WIDTH=40% ALIGN="JUSTIFY">
+                    <ul style="list-style:none;" id="rightChapterPage"></ul>
                 </td>
             </tr>
         </table>
     </div>
+    
+    <script src="/js/punycode.min.js"></script>
     <script src="/js/SQLite3.js"></script>
     <script src="/js/jquery.min.js"></script>
     <script src="/js/render.js"></script>

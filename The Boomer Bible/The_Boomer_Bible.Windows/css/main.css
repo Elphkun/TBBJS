@@ -1,9 +1,16 @@
 /* Style Sheet for Morten's JavaScript Tree Menu
    Created & maintained by Morten Wang <morten@treemenu.com>
    Version 2001-10-20 */
+body {
+    font-size: medium;
+
 }
+.dropcap {
+			font-size: 3em;
+			font-weight: bold;
+		}
 li {
-    font-size: 4pt;
+    font-size: 1.13em;
 }
 sub, sup { 
 	font-size: 100%;
@@ -15,5 +22,17 @@ sup {
 }
 sub { 
 	bottom: -0.25em; 
+}
+
+ul{
+    padding:0px;
+}
+
+.leftFirstLine {
+    margin-top:-1.13em;
+}
+
+.rightFirstLine {
+    margin-top:1.62em;
 }
 /* End of Style Sheet */

@@ -70,6 +70,7 @@
     <Content Include="images\splashscreen.png" />
     <Content Include="images\storelogo.png" />
     <Content Include="js\jquery.min.js" />
+    <Content Include="js\punycode.min.js" />
     <Content Include="js\render.js" />
     <Content Include="js\SQLite3.js" />
     <Content Include="js\temp.js" />
