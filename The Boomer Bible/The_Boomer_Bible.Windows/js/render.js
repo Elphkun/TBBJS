@@ -1,6 +1,6 @@
 // render script 2.0
 
-var icrQuery = "bout.9";
+var icrQuery = "ira.24";
 
 var topSubtitle = new String();
 var book = new String();
@@ -24,7 +24,7 @@ SQLite3JS.openAsync('\TBB.db').then(function (db) {
     })
 
         .then(function () {
-            db.allAsync("SELECT * FROM versetable where ICR_name like '" + icrQuery+ "%' order by id;").then(function (row2) {
+            db.allAsync("SELECT * FROM versetable where ICR_name like '" + icrQuery+ ".%' order by id asc;").then(function (row2) {
                 for (var i = 0; i < row2.length; i++) {
                     verses.push(row2[i].TEXT);
                     verseID.push(row2[i].ID);
@@ -84,11 +84,11 @@ SQLite3JS.openAsync('\TBB.db').then(function (db) {
                     $('#chapterTitle').html(chapterTitle);
                     var idCount = 0;
                     for (var i = 0; i < leftChapterPage().length; i++) {
-                        $('#leftChapterPage').append('<li id="' + verseID[idCount] + '">' + leftChapterPage()[i]);
+                        $('#leftChapterPage').append('<li class="verseLine" id="' + verseID[idCount] + '">' + leftChapterPage()[i]);
                         idCount++;
                     };
                     for (var i = 0; i < rightChapterPage().length; i++) {
-                        $('#rightChapterPage').append('<li id="' + verseID[idCount] + '">' + rightChapterPage()[i]);
+                        $('#rightChapterPage').append('<li class="verseLine" id="' + verseID[idCount] + '">' + rightChapterPage()[i]);
                         idCount++;
                     };
                     var firstItems = $('#leftChapterPage li:first-child'); //first list item of the fox class ul
@@ -119,6 +119,7 @@ SQLite3JS.openAsync('\TBB.db').then(function (db) {
                     });
                     $('#leftChapterPage li:first-child').addClass('leftFirstLine');
                     $('#rightChapterPage li:first-child').addClass('rightFirstLine');
+                    $('.verseLine').hover(function () { $(this).addClass('hoverLite'); }, function () { $(this).removeClass('hoverLite'); });
                     // The following comments are attempts to correct the first verse 'line-height' issue
 
                     //  $('#leftChapterPage li:nth-child(1)').css('line-height', '62.5%');

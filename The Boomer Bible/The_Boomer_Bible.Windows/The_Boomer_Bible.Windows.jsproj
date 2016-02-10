@@ -85,9 +85,6 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\..\SQLite3-WinRT-master\SQLite3Component\SQLite3Component.vcxproj" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="db\" />
-  </ItemGroup>
   <Import Project="..\The_Boomer_Bible.Shared\The_Boomer_Bible.Shared.projitems" Label="Shared" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\$(WMSJSProjectDirectory)\Microsoft.VisualStudio.$(WMSJSProject).targets" />
   <!-- To modify your build process, add your task inside one of the targets below then uncomment

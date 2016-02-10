@@ -35,4 +35,10 @@ ul{
 .rightFirstLine {
     margin-top:1.62em;
 }
+.fontFour {
+    font-size: 1em;
+}
+.hoverLite{
+    background-color:yellow;
+}
 /* End of Style Sheet */
