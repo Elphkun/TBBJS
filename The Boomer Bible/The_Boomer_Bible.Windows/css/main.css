@@ -38,7 +38,15 @@ ul{
 .fontFour {
     font-size: 1em;
 }
+
+.fontSix {
+    font-size: 1.62em;
+}
+
 .hoverLite{
     background-color:yellow;
+}
+hr{
+    margin-left:-.31em;
 }
 /* End of Style Sheet */

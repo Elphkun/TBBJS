@@ -1,6 +1,6 @@
 // render script 2.0
 
-var icrQuery = "ira.24";
+var icrQuery = "mawr.17";
 
 var topSubtitle = new String();
 var book = new String();
@@ -13,7 +13,7 @@ var verses = new Array();
 var verseID = new Array();
 
 SQLite3JS.openAsync('\TBB.db').then(function (db) {
-    return db.allAsync("SELECT * FROM chaptertable where ICR_name like '"+icrQuery+"' order by id asc;").then(function (row) {
+    return db.allAsync("SELECT * FROM chaptertable where ICR_name like '" + icrQuery + "' order by id asc;").then(function (row) {
         topSubtitle = toStaticHTML(row[0].TOPSUBTITLE);
         book = toStaticHTML(row[0].BOOK);
         bottomSubtitle = toStaticHTML(row[0].BOTTOMSUBTITLE);
@@ -24,19 +24,19 @@ SQLite3JS.openAsync('\TBB.db').then(function (db) {
     })
 
         .then(function () {
-            db.allAsync("SELECT * FROM versetable where ICR_name like '" + icrQuery+ ".%' order by id asc;").then(function (row2) {
+            db.allAsync("SELECT * FROM versetable where ICR_name like '" + icrQuery + ".%' order by id asc;").then(function (row2) {
                 for (var i = 0; i < row2.length; i++) {
                     verses.push(row2[i].TEXT);
                     verseID.push(row2[i].ID);
                 }
-                               
-                    verses = verses.map(function (encodedString) {
+
+                verses = verses.map(function (encodedString) {
                     var textArea = document.createElement('textarea');
                     textArea.innerHTML = encodedString;
                     return textArea.value;
                 });
                 // the next few var's we can't populate without verses[] filled first
-                
+
                 var versesPlaintext = verses.map(function (vs) { return $('<span />').append(vs).text(); }); // strip HTML tags from verse text for character count function below.
                 var breakVerseIndex = function () { // code to count all characters in chapter, cut in half, and split between book pages. Credit to Robbie-kun.
 
@@ -78,7 +78,7 @@ SQLite3JS.openAsync('\TBB.db').then(function (db) {
                     if (topSubtitle != 'null') { $('#topSubtitle').html(topSubtitle); }
                     $('#book').html(book);
                     if (bottomSubtitle != 'null') { $('#bottomSubtitle').html(bottomSubtitle); }
-                    $('#chapterMax').find('font').text("{" + chapterMax + " Chapters}");
+                    $('#chapterMax').html("{" + chapterMax + " Chapters}");
                     if (leftPageHeader != 'null') { $('#leftPageHeader').html(leftPageHeader); }
                     if (rightPageHeader != 'null') { $('#rightPageHeader').html(rightPageHeader); }
                     $('#chapterTitle').html(chapterTitle);
@@ -110,8 +110,7 @@ SQLite3JS.openAsync('\TBB.db').then(function (db) {
                         var text = $.trim(contentsWithText.text());
                         //strip the initial letter
                         var first_letter = text.substr(0, 1);
-                        if (first_letter == "“" || "‘")
-                        {
+                        if (first_letter == "“" || "‘") {
                             first_letter = text.substr(0, 2);
                         }
                         //replace the content with a span with class dropcap followed by the remainder of the content
@@ -128,7 +127,30 @@ SQLite3JS.openAsync('\TBB.db').then(function (db) {
                     // screwed up $('#rightChapterPage'):nth-child(1)').css('line-height', '1em');
 
                 });
+            }).then(function () {
+                db.allAsync("SELECT * from ICRTable where ICR_CHAPTER like '" + icrQuery + "' order by id asc;").then(function (row3) {
+                    if (row3[0] != null) {
+                        var firstICRLetter = row3[0].LETTER;
+                        var countICRLetter = firstICRLetter;
+                        $('#icrColumn').append(toStaticHTML('<li class="icrLine">' + row3[0].LETTER + '. ' + row3[0].ICR_TEXT));
+                        for (var i = 1; i < row3.length; i++) {
+                            if (row3[i].LETTER == countICRLetter) {
+                                $('#icrColumn').append(toStaticHTML('<li class="icrLine">' + '&nbsp;&nbsp;&nbsp;&nbsp;' + row3[i].ICR_TEXT));
+                                countICRLetter = row3[i].LETTER;
+                            }
+                            else if (row3[i].LETTER == null) {
+                                $('#icrColumn').append(toStaticHTML('<li> <hr />'));
+                            }
+                            else {
+                                $('#icrColumn').append(toStaticHTML('<li class="icrLine">' + row3[i].LETTER + '. ' + row3[i].ICR_TEXT));
+                                countICRLetter = row3[i].LETTER;
+                            }
 
-            }).then(function () { db.close(); });
+                        }
+                    }
+                }
+                
+            ).then(function () { db.close(); });
+            });
         });
 });
