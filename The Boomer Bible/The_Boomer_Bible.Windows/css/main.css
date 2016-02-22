@@ -1,15 +1,17 @@
-/* Style Sheet for Morten's JavaScript Tree Menu
-   Created & maintained by Morten Wang <morten@treemenu.com>
-   Version 2001-10-20 */
+/* Style Sheet Green Meat's TBB mobile app*/
+
+p {
+    text-indent:5%;
+}
 body {
     font-size: medium;
-
+    margin-right:25px;
 }
 .dropcap {
 			font-size: 3em;
 			font-weight: bold;
 		}
-li {
+.verseLine {
     font-size: 1.13em;
 }
 sub, sup { 
@@ -35,13 +37,6 @@ ul{
 .rightFirstLine {
     margin-top:1.62em;
 }
-.fontFour {
-    font-size: 1em;
-}
-
-.fontSix {
-    font-size: 1.62em;
-}
 
 .hoverLite{
     background-color:yellow;
@@ -49,4 +44,37 @@ ul{
 hr{
     margin-left:-.31em;
 }
+
+.chapterBody{
+    display:none
+}
+
+.defaultBody{
+    display:none
+}
+
+.fontFour {
+    font-size: 1.13em;
+}
+
+.fontFive {
+    font-size: 1.5em;
+}
+.fontSix {
+    font-size: 2em;
+}
+.fontSeven {
+    font-size: 3em;
+}
+.prevButton, .nextButton{
+    cursor:pointer;
+    color:#330099;
+    text-decoration:underline;
+}
+.ICRClickable, .pageClickable{
+    cursor:pointer;
+    color:#330099;
+    text-decoration:underline;
+}
+
 /* End of Style Sheet */

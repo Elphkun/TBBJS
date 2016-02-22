@@ -65,6 +65,7 @@
     </AppxManifest>
     <Content Include="css\main.css" />
     <Content Include="default.html" />
+    <Content Include="images\heartline.gif" />
     <Content Include="images\logo.png" />
     <Content Include="images\smalllogo.png" />
     <Content Include="images\splashscreen.png" />

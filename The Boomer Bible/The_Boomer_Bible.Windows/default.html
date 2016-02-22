@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
-<head>
-    <meta charset="iso-8859-2">
+<head style="font-size:medium">
+    <meta charset="utf-8">
     <title>The_Boomer_Bible.Windows</title>
 
     <!-- WinJS references -->
@@ -9,43 +9,54 @@
 
     <script src="//Microsoft.WinJS.2.0/js/base.js"></script>
     <script src="//Microsoft.WinJS.2.0/js/ui.js"></script>
-     
-</head>
-<body bgcolor="#FFFFFF">
-    <div ALIGN="CENTER" ><span id="topSubtitle"></span></div>
-    <div ALIGN="CENTER"><span style="font-size: 3em; font-weight:bold" id="book"></span></div>
-    <div ALIGN="CENTER"><span id="bottomSubtitle"></span></div>
-    <div ALIGN="CENTER"><span id="chapterMax" style="font-size:1.62em"></span></div>
-    <div id="blankSpace">&nbsp;</div>
+    
     <div align="center">
         <table BORDER="0" width="98%">
             <tr>
-                <td VALIGN=top WIDTH=50% ALIGN="LEFT" style="font-size:1.5em; font-style:italic" id="leftPageHeader">            
-                </td>
-                <td VALIGN=top WIDTH=50% ALIGN="RIGHT" style="font-size:1.5em; font-style:italic" id="rightPageHeader"></td>
+                <td VALIGN=top WIDTH=50% ALIGN="LEFT" style="font-size:1.5em;"><span class="prevButton">Previous</span></td>
+                <td VALIGN=top WIDTH=50% ALIGN="RIGHT" style="font-size:1.5em;"><span class="nextButton">Next</span></td>
             </tr>
         </table>
-    </div>
-    <div ALIGN="CENTER" style="font-size:2em" id="chapterTitle"></div>
-    <div ALIGN="CENTER">
-        <table BORDER="1" width="95%">
-            <tr>
-                <td VALIGN=top WIDTH=40% ALIGN="JUSTIFY">
-                <ul style="list-style:none" id="leftChapterPage"></ul>                
-                </td>
-                <td VALIGN="top" WIDTH=20%>
-                    <ul id="icrColumn" style="font-style:italic; list-style:none; margin-left:.31em; margin-top:1em; font-size:1em"></ul>
-                </td>
-                <td VALIGN="top" WIDTH=40% ALIGN="JUSTIFY">
-                    <ul style="list-style:none;" id="rightChapterPage"></ul>
-                </td>
-            </tr>
-        </table>
+</div>
+</head>
+<body bgcolor="#FFFFFF">
+    <div class="defaultBody"></div>
+    <div class="chapterBody">
+        <div ALIGN="CENTER"><span id="topSubtitle"></span></div>
+        <div ALIGN="CENTER"><span style="font-size: 3em; font-weight:bold" id="book"></span></div>
+        <div ALIGN="CENTER"><span id="bottomSubtitle"></span></div>
+        <div ALIGN="CENTER"><span id="chapterMax" style="font-size:1.62em"></span></div>
+        <div id="blankSpace">&nbsp;</div>
+        <div align="center">
+            <table BORDER="0" width="98%">
+                <tr>
+                    <td VALIGN=top WIDTH=50% ALIGN="LEFT" style="font-size:1.5em; font-style:italic" id="leftPageHeader"></td>
+                    <td VALIGN=top WIDTH=50% ALIGN="RIGHT" style="font-size:1.5em; font-style:italic" id="rightPageHeader"></td>
+                </tr>
+            </table>
+        </div>
+        <div ALIGN="CENTER" style="font-size:2em" id="chapterTitle"></div>
+        <div ALIGN="CENTER">
+            <table BORDER="1" width="95%">
+                <tr>
+                    <td VALIGN=top WIDTH=40% ALIGN="JUSTIFY" id="leftChapterPage">
+                        
+                    </td>
+                    <td VALIGN="top" WIDTH=20% id="icrColumn" style="font-style:italic; padding-left:.31em; padding-top:1em; font-size:1.13em">
+                        
+                    </td>
+                    <td VALIGN="top" WIDTH=40% ALIGN="JUSTIFY" id="rightChapterPage" style="padding-top:2em">
+                        
+                    </td>
+                </tr>
+            </table>
+        </div>
     </div>
     
     <script src="/js/punycode.min.js"></script>
     <script src="/js/SQLite3.js"></script>
     <script src="/js/jquery.min.js"></script>
     <script src="/js/render.js"></script>
+    
 </body>
 </html>
